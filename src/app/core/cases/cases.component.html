@@ -1,0 +1,186 @@
+<div class="content-header">
+  <div class="container mt-4">
+    <div class="row mb-2">
+      <div class="col-sm-6">
+        <h1 class="m-0">Casos Confirmados</h1>
+      </div>
+      <div class="col-sm-6">
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="row">
+
+    <div class="col-lg-4 col-md-6 col-sm-12">
+      <div class="card">
+        <div class="card-body">
+          <p class="text-center" style="font-size:48px">465.166</p>
+          <p class="text-center">Confirmados</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-4 col-md-6 col-sm-12">
+      <div class="card">
+        <div class="card-body">
+          <p class="text-center" style="font-size:48px">189.476</p>
+          <p class="text-center">Recuperados</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-4 col-md-6 col-sm-12">
+      <div class="card">
+        <div class="card-body">
+          <p class="text-center" style="font-size:48px">275.690</p>
+          <p class="text-center">Ativos</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="row">
+
+    <div class="col-sm-12">
+      <div class="card">
+        <div class="card-header border-0">
+          <div class="d-flex justify-content-between">
+            <h3 class="card-title">Casos novos de COVID-19 por data de notificação</h3>
+          </div>
+        </div>
+        <div class="card-body">
+          <!-- <div class="d-flex">
+            <p class="d-flex flex-column">
+              <span class="text-bold text-lg">820</span>
+              <span>Visitors Over Time</span>
+            </p>
+            <p class="ml-auto d-flex flex-column text-right">
+              <span class="text-success">
+                <i class="fas fa-arrow-up"></i> 12.5%
+              </span>
+              <span class="text-muted">Since last week</span>
+            </p>
+          </div> -->
+          <!-- /.d-flex -->
+
+          <div class="row">
+            <div class="col-lg-12" style="width: 100%; height: 400px;">
+              <ngx-charts-area-chart
+                [scheme]="colorScheme"
+                [legend]="false"
+                [showXAxisLabel]="showXAxisLabel"
+                [showYAxisLabel]="showYAxisLabel"
+                [xAxis]="xAxis"
+                [yAxis]="yAxis"
+                [xAxisLabel]="xAxisLabel"
+                [yAxisLabel]="yAxisLabel"
+                [timeline]="timeline"
+                [results]="multi"
+                [gradient]="true"
+                >
+              </ngx-charts-area-chart>
+            </div>
+
+          </div>
+
+          <div class="d-flex flex-row justify-content-end pt-0">
+            <span class="mr-2">
+              <div class="custom-control custom-radio">
+                <input class="custom-control-input" type="radio" id="customRadio1" name="customRadio" checked (click)="setDataAcumulado()">
+                <label for="customRadio1" class="custom-control-label">Acumulado</label>
+              </div>
+            </span>
+
+            <span>
+              <div class="custom-control custom-radio">
+                <input class="custom-control-input" type="radio" id="customRadio2" name="customRadio" (click)="setDataPordia()">
+                <label for="customRadio2" class="custom-control-label">Por dia</label>
+              </div>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="row">
+
+    <div class="col-lg-6 col-md-12">
+
+      <div class="card">
+        <div class="card-header border-0">
+          <div class="d-flex justify-content-between">
+            <h3 class="card-title">Distribuição por sexo</h3>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-lg-12 " style="width: 100%; height: 300px;">
+              <ngx-charts-pie-chart
+                [scheme]="colorSchemeCasesByGender"
+                [labels]="false"
+                [results]="casesByGender"
+                [doughnut]="true">
+              </ngx-charts-pie-chart>
+            </div>
+
+          </div>
+
+          <div class="d-flex flex-row justify-content-end">
+            <span class="mr-2">
+              <i class="fas fa-square" style="color: #97CBEC"></i> 60% Masculino
+            </span>
+
+            <span>
+              <i class="fas fa-square" style="color: #F7ABD5"></i> 40% Feminino
+            </span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="col-lg-6 col-md-12">
+
+      <div class="card">
+        <div class="card-header border-0">
+          <div class="d-flex justify-content-between">
+            <h3 class="card-title">Distribuição por idade</h3>
+          </div>
+        </div>
+        <div class="card-body">
+
+          <div class="row">
+            <div class="col-lg-12 " style="width: 100%; height: 300px;">
+              <ngx-charts-bar-vertical
+                [scheme]="colorSchemeCasesByAge"
+                [results]="casesByAge"
+                [xAxis]="true"
+                [yAxis]="true"
+                [gradient]="false">
+              </ngx-charts-bar-vertical>
+            </div>
+
+          </div>
+
+          <div class="d-flex flex-row justify-content-end">
+            <span class="mr-2">
+              <i class="fas fa-square" style="color: #5AA454"></i> 465.166 Casos
+            </span>
+
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

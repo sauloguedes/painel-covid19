@@ -7,4 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'painel-covid19';
+
+  asdasd = "asdads"
+  asda = "asdasd"
 }

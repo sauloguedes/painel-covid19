@@ -49,9 +49,17 @@
               "src/assets"
             ],
             "styles": [
+              { "input": "./node_modules/admin-lte/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css" },
+              { "input": "./node_modules/admin-lte/plugins/fontawesome-free/css/all.min.css" },
+              { "input": "./node_modules/admin-lte/dist/css/adminlte.min.css" },
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              { "input": "./node_modules/admin-lte/plugins/jquery/jquery.min.js" },
+              { "input": "./node_modules/admin-lte/plugins/jquery-ui/jquery-ui.min.js" },
+              { "input": "./node_modules/admin-lte/plugins/bootstrap/js/bootstrap.bundle.min.js" },
+              { "input": "./node_modules/admin-lte/dist/js/adminlte.js" }
+            ]
           },
           "configurations": {
             "production": {
