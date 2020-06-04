@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { obitosAcumulados } from './data/obitosAcumulados';
 import { obitosPorDia } from './data/obitosPorDia';
+import { obitosPorIdade } from './data/obitosPorIdade';
+import { Dados } from './data/data.model';
+import { obitosPorGenero } from './data/obitosPorGenero';
 
 @Component({
   selector: 'app-deaths',
@@ -9,23 +12,54 @@ import { obitosPorDia } from './data/obitosPorDia';
 })
 export class DeathsComponent implements OnInit {
 
-  public data = [];
+  //
+  public countDeaths: number
+  //
+  public letalidade: number
+  //
+  public mortalidade: number
 
-  public view: any[] = [];
+  //
+  public data: Dados[];
 
-  colorScheme = {
-    domain: ['#5AA454']
+  //
+  public colorScheme = {
+    domain: ['#7d6b80']
   };
 
+  //
   private days = obitosAcumulados.length
 
-  public mediaObitosDia: number = 27878 / this.days
+  //
+  public mediaObitosDia: number
+
+  // Gráficos de Distribuição por idade
+  public deathsByAge: Dados[]
+
+  // Gráficos de Distribuição por genero
+  public deathsByGender: Dados[]
+
+  public colorSchemeDeathsByGender = {
+    domain: ['#97CBEC', '#F7ABD5']
+  }
 
   constructor() { }
 
   ngOnInit(): void {
 
-    this.setObitosAcumulado()
+    this.setObitosPordia()
+
+    this.countDeaths = 27878
+
+    this.letalidade = 6.0
+
+    this.mortalidade = 14.8
+
+    this.deathsByAge = obitosPorIdade
+
+    this.deathsByGender = obitosPorGenero
+
+    this.mediaObitosDia = this.countDeaths / this.days
 
   }
 

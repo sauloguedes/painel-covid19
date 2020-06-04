@@ -1,5 +1,5 @@
 <div class="content-header" id="casos">
-  <div class="container mt-4">
+  <div class="container">
     <div class="row mb-2">
       <div class="col-sm-6">
         <h1 class="m-0">Casos Confirmados</h1>
@@ -15,29 +15,38 @@
 
   <div class="row">
 
-    <div class="col-lg-4 col-md-6 col-sm-12">
+    <div class="col-lg-3 col-md-6 col-sm-12">
       <div class="card">
         <div class="card-body">
-          <p class="text-center" style="font-size:48px">465.166</p>
+          <p class="text-center" style="font-size:36px">465.166</p>
           <p class="text-center">Confirmados</p>
         </div>
       </div>
     </div>
 
-    <div class="col-lg-4 col-md-6 col-sm-12">
+    <div class="col-lg-3 col-md-6 col-sm-12">
       <div class="card">
         <div class="card-body">
-          <p class="text-center" style="font-size:48px">189.476</p>
+          <p class="text-center" style="font-size:36px">189.476</p>
           <p class="text-center">Recuperados</p>
         </div>
       </div>
     </div>
 
-    <div class="col-lg-4 col-md-6 col-sm-12">
+    <div class="col-lg-3 col-md-6 col-sm-12">
       <div class="card">
         <div class="card-body">
-          <p class="text-center" style="font-size:48px">275.690</p>
+          <p class="text-center" style="font-size:36px">275.690</p>
           <p class="text-center">Ativos</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-3 col-md-6 col-sm-12">
+      <div class="card">
+        <div class="card-body">
+          <p class="text-center" style="font-size:36px">264,3</p>
+          <p class="text-center">Tx Incidência</p>
         </div>
       </div>
     </div>
@@ -56,8 +65,9 @@
         <div class="card-body">
 
           <div class="row">
-            <div class="col-lg-12" style="width: 100%; height: 400px;">
-              <ngx-charts-area-chart
+            <div class="col-lg-12" style="width: 100%; height: 300px;">
+              <ngx-charts-bar-vertical
+                [barPadding]="5"
                 [scheme]="colorScheme"
                 [legend]="false"
                 [showXAxisLabel]="showXAxisLabel"
@@ -66,16 +76,14 @@
                 [yAxis]="yAxis"
                 [xAxisLabel]="xAxisLabel"
                 [yAxisLabel]="yAxisLabel"
-                [timeline]="false"
-                [results]="multi"
-                [gradient]="true"
-                >
-              </ngx-charts-area-chart>
+                [results]="dadosCasos"
+                [gradient]="false">
+              </ngx-charts-bar-vertical>
             </div>
 
           </div>
 
-          <div class="d-flex flex-row justify-content-end pt-0">
+          <div class="d-flex flex-row justify-content-end pt-3">
             <span class="mr-2">
               <div class="custom-control custom-radio">
                 <input class="custom-control-input" type="radio" id="customRadio1" name="customRadio" checked (click)="setDataAcumulado()">
@@ -119,7 +127,7 @@
 
           </div>
 
-          <div class="d-flex flex-row justify-content-end">
+          <div class="d-flex flex-row justify-content-end pt-3">
             <span class="mr-2">
               <i class="fas fa-square" style="color: #97CBEC"></i> 60% Masculino
             </span>
@@ -156,7 +164,7 @@
 
           </div>
 
-          <div class="d-flex flex-row justify-content-end">
+          <div class="d-flex flex-row justify-content-end pt-3">
             <span class="mr-2">
               <i class="fas fa-square" style="color: #5AA454"></i> 465.166 Casos
             </span>

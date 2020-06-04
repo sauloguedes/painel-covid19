@@ -9,7 +9,7 @@ import { casesPorDia } from './data/casesPorDia';
 })
 export class CasesComponent implements OnInit {
 
-  public multi = [];
+  public dadosCasos = [];
 
   public view: any[] = [];
 
@@ -92,21 +92,11 @@ export class CasesComponent implements OnInit {
   }
 
   setDataAcumulado(): void {
-    this.multi = [
-      {
-        "name": "Casos",
-        "series": cases
-      }
-    ];
+    this.dadosCasos = cases
   }
 
   setDataPordia(): void {
-    this.multi = [
-      {
-        "name": "Casos",
-        "series": casesPorDia
-      }
-    ];
+    this.dadosCasos = casesPorDia
   }
 
 }
