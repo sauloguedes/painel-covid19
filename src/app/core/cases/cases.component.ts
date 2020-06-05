@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { cases } from './data/casesAcumulados';
 import { casesPorDia } from './data/casesPorDia';
+import { casesByGenderAndAge } from './data/casesByGenderAndAge';
 
 @Component({
   selector: 'app-cases',
@@ -8,6 +9,14 @@ import { casesPorDia } from './data/casesPorDia';
   styleUrls: ['./cases.component.css']
 })
 export class CasesComponent implements OnInit {
+
+  public countCasos: number = 584016
+
+  public countCasosMasculinos: number = 0
+
+  public countCasosFemininos: number = 0
+
+  public countSragHospitalizados: number = 0
 
   public dadosCasos = [];
 
@@ -33,52 +42,12 @@ export class CasesComponent implements OnInit {
   colorSchemeCasesByGender = {
     domain: ['#97CBEC', '#F7ABD5']
   }
-  casesByGender = [
-    {
-      "name": "Masculino",
-      "value": 60
-    },
-    {
-      "name": "Feminino",
-      "value": 40
-    }
-  ]
+
+  public casesByGender: any[] = []
 
   // Gráficos de Distribuição por idade
-  casesByAge = [
-    {
-      "name": "0 - 9 anos",
-      "value": 1
-    },
-    {
-      "name": "10 - 19 anos",
-      "value": 2
-    },
-    {
-      "name": "20 - 29 anos",
-      "value": 3
-    },
-    {
-      "name": "30 - 39 anos",
-      "value": 4
-    },
-    {
-      "name": "40 - 49 anos",
-      "value": 5
-    },
-    {
-      "name": "50 - 59 anos",
-      "value": 6
-    },
-    {
-      "name": "60 - 69 anos",
-      "value": 7
-    },
-    {
-      "name": "70 +",
-      "value": 8
-    }
-  ]
+  public casesByAge: any[] = []
+
   colorSchemeCasesByAge = {
     domain: ['#5AA454']
   };
@@ -87,16 +56,55 @@ export class CasesComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.setDataAcumulado()
+    this.setDataPordia()
+
+    this.setDataByAge()
+
+    this.setCasesByGender()
+
+  }
+
+  setDataByAge(): void {
+
+    let cases = casesByGenderAndAge
+
+    cases.forEach(c => {
+
+      let sum = c.qtd_homens + c.qtd_mulheres
+
+      this.casesByAge.push({ "name": c.name, "value": sum })
+
+      this.countSragHospitalizados += sum
+    })
+
+  }
+
+  setCasesByGender(): void {
+
+    let cases = casesByGenderAndAge
+
+    cases.forEach(c => {
+      this.countCasosMasculinos += c.qtd_homens
+      this.countCasosFemininos += c.qtd_mulheres
+    })
+
+    this.casesByGender = [
+      { "name": "Masculino", "value": this.countCasosMasculinos },
+      { "name": "Feminino", "value": this.countCasosFemininos }
+    ]
 
   }
 
   setDataAcumulado(): void {
+
     this.dadosCasos = cases
+
   }
 
   setDataPordia(): void {
+
     this.dadosCasos = casesPorDia
+
   }
 
 }
