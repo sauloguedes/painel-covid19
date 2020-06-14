@@ -1,27 +1,39 @@
 # PainelCovid19
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.0.
+Painel de monitoramento dos casos de covid-19 no Brasil
 
-## Development server
+## Servidor de desenvolvimento
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Clonando o projeto:
 
-## Code scaffolding
+```
+git clone https://github.com/sauloguedes/painel-covid19.git
+```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Navegue até a pasta do projeto:
 
-## Build
+```
+cd painel-covid19
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Baixando as dependências do projeto
 
-## Running unit tests
+```npm install
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Rodando o projeto
 
-## Running end-to-end tests
+```ng serve
+```
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+Visite [http://localhost:4200](http://localhost:4200) no seu navegador para ver o resultado.
 
-## Further help
+----
+## Fonte de dados utilizadas
+- [Brasil.io](https://github.com/evilstreak/markdown-js)
+- [Ministério da Saúde](http://saude.gov.br)
+- [Coronavírus Brasil](https://covid.saude.gov.br/)
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+## Docs (preview)
+
+* [Site](https://sauloguedes.github.io/painel-covid19/)
