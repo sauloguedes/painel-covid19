@@ -1,4 +1,4 @@
-export interface Dados {
+export interface GraphData {
   name: string,
   value: number
 }
