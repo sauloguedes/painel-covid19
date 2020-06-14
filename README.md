@@ -18,12 +18,14 @@ cd painel-covid19
 
 Baixando as dependências do projeto
 
-```npm install
+```
+npm install
 ```
 
 Rodando o projeto
 
-```ng serve
+```
+ng serve
 ```
 
 Visite [http://localhost:4200](http://localhost:4200) no seu navegador para ver o resultado.
