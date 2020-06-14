@@ -173,10 +173,11 @@ export class CasesComponent implements OnInit {
 
   private setStatusCases() {
 
-    // this.dataStatusCases
-    // this.percentualObitos = (this.countObitos / this.countCasos) * 100
-    // this.percentualRecuperados = (this.countCasosRecuperados / this.countCasos) * 100
-    // this.percentualAtivos = (this.countCasosAtivos / this.countCasos) * 100
+    this.dataStatusCases = [
+      { name: "Recuperados", value: this.countCasosRecuperados },
+      { name: "Ativos", value: this.countCasosAtivos },
+      { name: "Óbitos", value: this.countObitos },
+    ]
 
   }
 

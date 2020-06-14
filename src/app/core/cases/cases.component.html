@@ -21,10 +21,12 @@
     <div class="col-lg-3 col-md-6 col-sm-12">
 
       <div class="info-box">
-        <span class="info-box-icon bg-success"><i class="fas fa-viruses"></i></span>
+        <span class="info-box-icon bg-gradient-success"><i class="fas fa-viruses"></i></span>
 
         <div class="info-box-content text-center">
-          <span class="info-box-number" style="font-size: 28px">{{countCasos}}</span>
+          <span class="info-box-number" style="font-size: 28px">
+            <tm-ng-odometer [number]="countCasos" [config]="{ format: '(.ddd)'}"></tm-ng-odometer>
+          </span>
           <span class="info-box-text pt-2">Confirmados</span>
         </div>
 
@@ -34,10 +36,12 @@
 
     <div class="col-lg-3 col-md-6 col-sm-12">
       <div class="info-box">
-        <span class="info-box-icon bg-success"><i class="fas fa-shield-virus"></i></span>
+        <span class="info-box-icon bg-gradient-success"><i class="fas fa-shield-virus"></i></span>
 
         <div class="info-box-content text-center">
-          <span class="info-box-number" style="font-size: 28px">{{countCasosRecuperados}}</span>
+          <span class="info-box-number" style="font-size: 28px">
+            <tm-ng-odometer [number]="countCasosRecuperados" [config]="{ format: '(.ddd)'}"></tm-ng-odometer>
+          </span>
           <span class="info-box-text pt-2">Recuperados</span>
         </div>
 
@@ -46,10 +50,12 @@
 
     <div class="col-lg-3 col-md-6 col-sm-12">
       <div class="info-box">
-        <span class="info-box-icon bg-success"><i class="fas fa-head-side-virus"></i></span>
+        <span class="info-box-icon bg-gradient-success"><i class="fas fa-head-side-virus"></i></span>
 
         <div class="info-box-content text-center">
-          <span class="info-box-number" style="font-size: 28px">{{countCasosAtivos}}</span>
+          <span class="info-box-number" style="font-size: 28px">
+            <tm-ng-odometer [number]="countCasosAtivos" [config]="{ format: '(.ddd)'}"></tm-ng-odometer>
+          </span>
           <span class="info-box-text pt-2">Ativos</span>
         </div>
 
@@ -58,10 +64,13 @@
 
     <div class="col-lg-3 col-md-6 col-sm-12">
       <div class="info-box">
-        <span class="info-box-icon bg-success"><i class="fas fa-users"></i></span>
+        <span class="info-box-icon bg-gradient-success"><i class="fas fa-users"></i></span>
 
         <div class="info-box-content text-center">
-          <span class="info-box-number" style="font-size: 28px">{{casosTxIncidencia | number : '1.2-2'}}</span>
+          <span class="info-box-number" style="font-size: 28px">
+            <tm-ng-odometer [number]="casosTxIncidencia" [config]="{ format: '(ddd),dd' }"></tm-ng-odometer>
+            <!-- {{casosTxIncidencia | number : '1.2-2'}} -->
+          </span>
           <span class="info-box-text pt-2">Incidência por 100k/hab</span>
         </div>
 
@@ -116,7 +125,7 @@
       <div class="card">
         <div class="card-header border-0">
           <div class="d-flex justify-content-between">
-            <h3 class="card-title">Casos novos de COVID-19 por data de notificação</h3>
+            <h3 class="card-title">Casos de COVID-19 por data de notificação</h3>
           </div>
         </div>
         <div class="card-body">
@@ -168,7 +177,7 @@
       <div class="card">
         <div class="card-header border-0">
           <div class="d-flex justify-content-between">
-            <h3 class="card-title">Distribuição casos por sexo</h3>
+            <h3 class="card-title">Casos por gênero</h3>
           </div>
         </div>
         <div class="card-body">
@@ -207,7 +216,7 @@
       <div class="card">
         <div class="card-header border-0">
           <div class="d-flex justify-content-between">
-            <h3 class="card-title">Distribuição casos por idade</h3>
+            <h3 class="card-title">Casos por idade (em anos)</h3>
           </div>
         </div>
         <div class="card-body">
@@ -238,7 +247,7 @@
 
   </div>
 
-  <div class="row" *ngIf="false">
+  <div class="row">
     <div class="col-sm-12">
       <div class="card">
         <div class="card-header border-0">
@@ -250,7 +259,7 @@
           <div class="col-sm-12" style="width: 100%; height: 200px;">
             <ngx-charts-pie-grid
               [scheme]="colorScheme"
-              [results]="casesByGender">
+              [results]="dataStatusCases">
             </ngx-charts-pie-grid>
           </div>
 
@@ -283,7 +292,9 @@
         <span class="info-box-icon bg-success" style="background-color: #7d6b80 !important"><i class="fas fa-virus-slash"></i></span>
 
         <div class="info-box-content text-center">
-          <span class="info-box-number" style="font-size: 28px">{{countObitos}}</span>
+          <span class="info-box-number" style="font-size: 28px">
+            <tm-ng-odometer [number]="countObitos" [config]="{ format: '(.ddd)'}"></tm-ng-odometer>
+          </span>
           <span class="info-box-text pt-2">Óbitos</span>
         </div>
 
@@ -296,7 +307,10 @@
         <span class="info-box-icon bg-success" style="background-color: #7d6b80 !important"><i class="fas fa-procedures"></i></span>
 
         <div class="info-box-content text-center">
-          <span class="info-box-number" style="font-size: 28px">{{obitosTxLetalidade | number : '1.2-2'}}%</span>
+          <span class="info-box-number" style="font-size: 28px">
+            <tm-ng-odometer [number]="obitosTxLetalidade" [config]="{ format: '(d),dd'}"></tm-ng-odometer>%
+            <!-- {{obitosTxLetalidade | number : '1.2-2'}}% -->
+          </span>
           <span class="info-box-text pt-2">Letalidade</span>
         </div>
 
@@ -308,7 +322,9 @@
         <span class="info-box-icon bg-success" style="background-color: #7d6b80 !important"><i class="far fa-calendar-times"></i></span>
 
         <div class="info-box-content text-center">
-          <span class="info-box-number" style="font-size: 28px">{{obitosUltimoPeriodo}}</span>
+          <span class="info-box-number" style="font-size: 28px">
+            <tm-ng-odometer [number]="obitosUltimoPeriodo" [config]="{ }"></tm-ng-odometer>
+          </span>
           <span class="info-box-text pt-2">Último período</span>
         </div>
 
@@ -320,7 +336,10 @@
         <span class="info-box-icon bg-success" style="background-color: #7d6b80 !important"><i class="fas fa-users"></i></span>
 
         <div class="info-box-content text-center">
-          <span class="info-box-number" style="font-size: 28px">{{obitosTxMortalidade | number : '1.2-2'}}</span>
+          <span class="info-box-number" style="font-size: 28px">
+            <tm-ng-odometer [number]="obitosTxMortalidade" [config]="{ format: '(ddd),dd' }"></tm-ng-odometer>
+            <!-- {{obitosTxMortalidade | number : '1.2-2'}} -->
+          </span>
           <span class="info-box-text pt-2">Mortalidade 100k/hab</span>
         </div>
 
@@ -375,7 +394,7 @@
       <div class="card">
         <div class="card-header border-0">
           <div class="d-flex justify-content-between">
-            <h3 class="card-title">Distribuição dos óbitos por data de notificação</h3>
+            <h3 class="card-title">Óbitos de COVID-19 por data de notificação</h3>
             <!-- <a href="javascript:void(0);">View Report</a> -->
           </div>
         </div>
@@ -423,7 +442,7 @@
       <div class="card">
         <div class="card-header border-0">
           <div class="d-flex justify-content-between">
-            <h3 class="card-title">Óbitos por sexo</h3>
+            <h3 class="card-title">Óbitos por gênero</h3>
           </div>
         </div>
         <div class="card-body">
@@ -462,7 +481,7 @@
       <div class="card">
         <div class="card-header border-0">
           <div class="d-flex justify-content-between">
-            <h3 class="card-title">Óbitos por idade</h3>
+            <h3 class="card-title">Óbitos por idade (em anos)</h3>
           </div>
         </div>
         <div class="card-body">

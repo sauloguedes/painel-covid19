@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { CasesComponent } from './core/cases/cases.component';
 
 import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { TmNgOdometerModule } from 'tm-ng-odometer';
 import { CoronaBrService } from './core/services/coronabr.service';
 
 @NgModule({
@@ -19,7 +20,8 @@ import { CoronaBrService } from './core/services/coronabr.service';
     BrowserAnimationsModule,
     AppRoutingModule,
     NgxChartsModule,
-    HttpClientModule
+    HttpClientModule,
+    TmNgOdometerModule
   ],
   providers: [CoronaBrService],
   bootstrap: [AppComponent]
